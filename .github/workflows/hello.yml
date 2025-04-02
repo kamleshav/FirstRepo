@@ -1,0 +1,10 @@
+name: My First Action
+
+on: push  # Runs every time you push code
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo "Hello, GitHub Actions! I'm alive! 🎉"
