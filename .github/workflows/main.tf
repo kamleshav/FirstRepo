@@ -14,9 +14,13 @@ variable "server_name" {
   type        = string
 }
 
+resource "docker_image" "nginx" {
+  name = "nginx:latest"
+}
+
 resource "docker_container" "test_server" {
   name  = var.server_name
-  image = "nginx:latest"
+  image = docker_image.nginx.latest
 
   ports {
     internal = 80
