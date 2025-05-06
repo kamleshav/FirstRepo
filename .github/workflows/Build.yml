@@ -1,0 +1,16 @@
+name: Build Server
+
+on:
+  workflow_dispatch:
+    inputs:
+      server_name:
+        description: 'Name of the server to be built'
+        required: true
+        default: 'my-server'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print server name
+        run: echo "Server to be built:${{ github.event.inputs.server_name }}"
